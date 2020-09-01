@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: ec90907268cb49f408f8ad2a53823603
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - TextNumOrSignOnScene: {fileID: 6036488995611635894, guid: 91ad76796986d864c9131a75e7adc861, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
