@@ -800,7 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CountAsteroid: 10
   _Asteroid:
-  - {fileID: 7983751469946645739, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
+  - {fileID: 334117088434587151, guid: 19fb6ae9a9dac444cba1015f2ef779fa, type: 3}
   - {fileID: 266041944529905013, guid: 5cf642ca8687bf346938af640f6a7529, type: 3}
   - {fileID: 7983751469946645739, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
   - {fileID: 7983751469946645739, guid: 184a8aa6606d4e34780a40647976f770, type: 3}

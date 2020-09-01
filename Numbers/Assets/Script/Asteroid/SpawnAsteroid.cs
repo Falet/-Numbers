@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnAsteroid : MonoBehaviour
 {
     public int CountAsteroid = 5;
-    public List<GameObject> _Asteroid = new List<GameObject>();
+    public List<Sprite> _Asteroid = new List<Sprite>();
     public float _incrementSpeedAsteroid;
 
     private int _counterForSpawn = 0;
@@ -28,11 +28,11 @@ public class SpawnAsteroid : MonoBehaviour
         _startPosition = new Vector3(xr, yb, 1.0f);
         _startTrans.rotation = Quaternion.Euler(0, 0, 0);
         _startTrans.position = _startPosition;
-        _startTrans.localScale = _Asteroid[_Asteroid.Count - 1].transform.localScale;
+        //_startTrans.localScale = _Asteroid[_Asteroid.Count - 1].transform.localScale;
         //_startPosition = new Vector3(Random.Range(yb, yt), xr, 1.0f);
     }
 
-    private void Update()
+    /*private void Update()
     {
         if(_counterForSpawn < CountAsteroid)
         {
@@ -64,6 +64,6 @@ public class SpawnAsteroid : MonoBehaviour
         _changeSpeed.Speed = Random.Range(0.07f, 7.0f);
         _startPosition.y = Random.Range(yt, yb);
         Asteroid.transform.position = _startPosition;
-    }
+    }*/
 
 }
