@@ -217,7 +217,7 @@ RectTransform:
   - {fileID: 471745588}
   - {fileID: 2075872061}
   - {fileID: 634037415}
-  - {fileID: 1240720446}
+  - {fileID: 4222936965912957788}
   - {fileID: 189152824}
   - {fileID: 590545383}
   - {fileID: 1208335529}
@@ -657,7 +657,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 240
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -730,8 +730,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -497, y: -0.8999939}
-  m_SizeDelta: {x: 12.640015, y: 1.6500092}
+  m_AnchoredPosition: {x: -506, y: -16.6}
+  m_SizeDelta: {x: 17.110031, y: 1.6518879}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1208335531
 BoxCollider2D:
@@ -799,13 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountAsteroid: 10
-  _Asteroid:
-  - {fileID: 334117088434587151, guid: 19fb6ae9a9dac444cba1015f2ef779fa, type: 3}
-  - {fileID: 266041944529905013, guid: 5cf642ca8687bf346938af640f6a7529, type: 3}
-  - {fileID: 7983751469946645739, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
-  - {fileID: 7983751469946645739, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
-  - {fileID: 7329315036868620152, guid: b59483bcfbd0a694797d7454f66e4251, type: 3}
-  - {fileID: 266041944529905013, guid: 5cf642ca8687bf346938af640f6a7529, type: 3}
+  _prefubAsteroid: []
   _incrementSpeedAsteroid: 0
 --- !u!1001 &1240720445
 PrefabInstance:
@@ -896,11 +890,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
---- !u!4 &1240720446 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4222936965003638625, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
-  m_PrefabInstance: {fileID: 1240720445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1330214915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf642ca8687bf346938af640f6a7529, type: 3}
+--- !u!4 &4222936965912957788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4222936965003638625, guid: 184a8aa6606d4e34780a40647976f770, type: 3}
+  m_PrefabInstance: {fileID: 1240720445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7329315037459319774
 PrefabInstance:
   m_ObjectHideFlags: 0
