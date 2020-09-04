@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 525015411415534103}
   - component: {fileID: 111965546484722751}
   - component: {fileID: 1125797034303489638}
+  - component: {fileID: -5038613246870837625}
   m_Layer: 0
   m_Name: AsteroidBig
   m_TagString: Untagged
@@ -113,3 +114,15 @@ CircleCollider2D:
   m_Offset: {x: -0.0000009536743, y: 0.00000011920929}
   serializedVersion: 2
   m_Radius: 2.200011
+--- !u!114 &-5038613246870837625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870463174472983736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ade5080c84b62a43a18df49e802cd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
