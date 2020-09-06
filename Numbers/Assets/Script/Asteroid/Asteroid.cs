@@ -2,17 +2,15 @@
 
 public class Asteroid : MonoBehaviour
 {
-    public MoveAsteroid MovementAsteroid { private set { MovementAsteroid = value; } get { return MovementAsteroid; } }
-    public CircleCollider2D AsteroidCirlce { private set { AsteroidCirlce = value; } get { return AsteroidCirlce; } }
-
-    private void Start()
+    private MoveAsteroid MovementAsteroid;
+    private CircleCollider2D AsteroidCirlce;
+    public MoveAsteroid GetMovementAsteroid { get { return MovementAsteroid; } }
+    public CircleCollider2D GetAsteroidCirlce { get { return AsteroidCirlce; } }
+    private void Awake()
     {
         MovementAsteroid = GetComponent<MoveAsteroid>();
         AsteroidCirlce = GetComponent<CircleCollider2D>();
     }
+    
 
-    private void Update()
-    {
-        
-    }
 }

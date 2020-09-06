@@ -2,9 +2,15 @@
 
 public class FindExtremePoints : MonoBehaviour
 {
-    private float Xr { get; set; }
-    private float Yt { get; set; }
-    private float Yb { get; set; }
+    private float Xr;
+    private float Yt;
+    private float Yb;
+    public float XRight
+    { get { return Xr; } }
+    public float YTop
+    { get { return Yt; } }
+    public float YBot
+    { get { return Yb; } }
     private void Start()
     {
         RectTransform _changeTransform = transform as RectTransform;

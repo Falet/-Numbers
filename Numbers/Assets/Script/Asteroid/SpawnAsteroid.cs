@@ -13,7 +13,8 @@ public class SpawnAsteroid : MonoBehaviour
     private Vector2 StartpositionRayUpper;
     private Vector2 StartpositionRayLower;
     private Quaternion _startRotation;
-    private struct ObjAndSpeed
+    private Dictionary<GameObject, Asteroid> _attachedScriptsToObj = new Dictionary<GameObject, Asteroid>();
+    /*private struct ObjAndSpeed
     {
         public GameObject Asteroid;
         public MoveAsteroid SpeedAsteroid;
@@ -25,46 +26,38 @@ public class SpawnAsteroid : MonoBehaviour
             this.AsteroidCirlce = AsteroidCirlce;
         }
         
-    }
-    private List<Asteroid> _arrayAsteroid = new List<Asteroid>();
-    private int _indexLastElement = 0;
+    }*/
+    //private List<Asteroid> _arrayAsteroid = new List<Asteroid>();
     private FindExtremePoints ValueExtremePoints;
     private void Start()
     {
         ValueExtremePoints = GetComponent<FindExtremePoints>();
         _checkotheasteroid = GetComponent<CheckOnBarrier>();
 
-        _startPosition = new Vector3(ValueExtremePoints.Xr + 10.0f, ValueExtremePoints.Yt, 1.0f);
+        _startPosition = new Vector3(ValueExtremePoints.XRight + 10.0f, ValueExtremePoints.YTop, 1.0f);
         _startRotation = Quaternion.Euler(0,0,0);
         
-        _indexLastElement = _arrayprefubAsteroid.Count - 1;
         for (_counterForSpawn = 0; _counterForSpawn < CountAsteroid; _counterForSpawn++)
         {
-            _startPosition.y = Random.Range(ValueExtremePoints.Yb, ValueExtremePoints.Yt);
-            GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[Random.Range(0, _indexLastElement)], _startPosition, _startRotation);
-            ObjAndSpeed ObjAndHisChangeSpeed = new ObjAndSpeed(ObjAsteroid, ObjAsteroid.GetComponent<MoveAsteroid>(), ObjAsteroid.GetComponent<CircleCollider2D>());  
-            _arrayAsteroid.Add(ObjAsteroid.GetComponent<Asteroid>());
-            
-            
-            _arrayAsteroid[_counterForSpawn].MovementAsteroid.Speed = 0;
+            _startPosition.y = Random.Range(ValueExtremePoints.YBot, ValueExtremePoints.YTop);
+            GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
 
-            _checkotheasteroid.SetObjRayCast(_arrayAsteroid[_counterForSpawn]);
-            //_arrayAsteroid[_counterForSpawn].SpeedAsteroid.Speed = 2.0f + _incrementSpeedAsteroid;
+            _attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
+            _attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = 0;
+
+            _checkotheasteroid.SetSrartPositionForRayCast(_attachedScriptsToObj[ObjAsteroid]);
+
         }
     }
 
     private void FixedUpdate()
     {
-        /*RaycastHit2D HitUpper = Physics2D.Raycast(StartpositionRayUpper, Vector2.right);
-        RaycastHit2D HitLower = Physics2D.Raycast(StartpositionRayLower, Vector2.right);
 
-        Debug.Log(HitUpper.collider.gameObject);*/
-        //Debug.Log(HitLower.collider.gameObject);
     }
     public void Respawn(GameObject Asteroid)
     {
         Asteroid.GetComponent<SpriteRenderer>().sprite = _arrayprefubAsteroid[Random.Range(0, _arrayprefubAsteroid.Count - 1)].GetComponent<SpriteRenderer>().sprite;
-        _startPosition.y = Random.Range(ValueExtremePoints.Yb, ValueExtremePoints.Yt);
+        _startPosition.y = Random.Range(ValueExtremePoints.YBot, ValueExtremePoints.YTop);
         Asteroid.transform.position = _startPosition;
     }
 
