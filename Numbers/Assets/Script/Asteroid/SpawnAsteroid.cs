@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpawnAsteroid : MonoBehaviour
 {
-    public int CountAsteroid = 1;
+    public int CountAsteroid;
     public List<GameObject> _arrayprefubAsteroid = new List<GameObject>();
     public float _incrementSpeedAsteroid;
 
@@ -11,11 +11,7 @@ public class SpawnAsteroid : MonoBehaviour
     private CheckOnBarrier _checkotheasteroid;
     private Vector3 _startPosition;
     private Quaternion _startRotation;
-    private Dictionary<GameObject, Asteroid> _attachedScriptsToObj = new Dictionary<GameObject, Asteroid>();
-    public Dictionary<GameObject, Asteroid> GetAttachedScriptsToObj()
-    {
-        return _attachedScriptsToObj;
-    }
+    private DictionaryAsteroid Componentdictionary;
     /*private struct ObjAndSpeed
     {
         public GameObject Asteroid;
@@ -33,6 +29,7 @@ public class SpawnAsteroid : MonoBehaviour
     private FindExtremePoints _valueExtremePoints;
     private void Start()
     {
+        Componentdictionary = GetComponent<DictionaryAsteroid>();
         _valueExtremePoints = GetComponent<FindExtremePoints>();
         _checkotheasteroid = GetComponent<CheckOnBarrier>();
 
@@ -44,10 +41,10 @@ public class SpawnAsteroid : MonoBehaviour
             _startPosition.y = Random.Range(_valueExtremePoints.YBot, _valueExtremePoints.YTop);
             GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
 
-            _attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
-            _attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = 0;
+            Componentdictionary._attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
+            Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = Random.Range(1,7);
 
-            _checkotheasteroid.SetSrartPositionForRayCast(_attachedScriptsToObj[ObjAsteroid]);
+            _checkotheasteroid.SetSrartPositionForRayCast(Componentdictionary._attachedScriptsToObj[ObjAsteroid]);
 
         }
     }
