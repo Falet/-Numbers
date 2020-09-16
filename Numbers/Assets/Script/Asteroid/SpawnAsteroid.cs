@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class SpawnAsteroid : MonoBehaviour
 {
     public int CountAsteroid;
@@ -12,20 +12,6 @@ public class SpawnAsteroid : MonoBehaviour
     private Vector3 _startPosition;
     private Quaternion _startRotation;
     private DictionaryAsteroid Componentdictionary;
-    /*private struct ObjAndSpeed
-    {
-        public GameObject Asteroid;
-        public MoveAsteroid SpeedAsteroid;
-        public CircleCollider2D AsteroidCirlce;
-        public ObjAndSpeed(GameObject Asteroid, MoveAsteroid SpeedAsteroid, CircleCollider2D AsteroidCirlce)
-        {
-            this.Asteroid = Asteroid;
-            this.SpeedAsteroid = SpeedAsteroid;
-            this.AsteroidCirlce = AsteroidCirlce;
-        }
-        
-    }*/
-    //private List<Asteroid> _arrayAsteroid = new List<Asteroid>();
     private FindExtremePoints _valueExtremePoints;
     private void Start()
     {
@@ -35,28 +21,49 @@ public class SpawnAsteroid : MonoBehaviour
 
         _startPosition = new Vector3(_valueExtremePoints.XRight + 10.0f, _valueExtremePoints.YTop, 1.0f);
         _startRotation = Quaternion.Euler(0,0,0);
-        
-        for (_counterForSpawn = 0; _counterForSpawn < CountAsteroid; _counterForSpawn++)
-        {
-            _startPosition.y = Random.Range(_valueExtremePoints.YBot, _valueExtremePoints.YTop);
-            GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
-
-            Componentdictionary._attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
-            Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = Random.Range(1,7);
-
-            _checkotheasteroid.SetSrartPositionForRayCast(Componentdictionary._attachedScriptsToObj[ObjAsteroid]);
-
-        }
+        GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[UnityEngine.Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
+        Componentdictionary._attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
+        Componentdictionary._attachedScriptsToObj[ObjAsteroid].UpperPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y + (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+        if (Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn > _valueExtremePoints.YTop)
+            Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockUpperPointSpawn = false;
+        Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y - (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+        if (Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn < _valueExtremePoints.YBot)
+            Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockLowerPointSpawn = false;
+        Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = UnityEngine.Random.Range(1, 7);
     }
 
     private void FixedUpdate()
     {
-
+        foreach (KeyValuePair<GameObject, Asteroid> keyValue in Componentdictionary._attachedScriptsToObj)
+        {
+            if(keyValue.Value.LockUpperPointSpawn == false)
+            {
+                GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[UnityEngine.Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
+                Componentdictionary._attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].UpperPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y + (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+                if (Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn > _valueExtremePoints.YTop)
+                    Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockUpperPointSpawn = false;
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y - (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockLowerPointSpawn = true;
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = UnityEngine.Random.Range(1, 7);
+            }
+            else if(keyValue.Value.LockLowerPointSpawn == false)
+            {
+                GameObject ObjAsteroid = Instantiate(_arrayprefubAsteroid[UnityEngine.Random.Range(0, _arrayprefubAsteroid.Count - 1)], _startPosition, _startRotation);
+                Componentdictionary._attachedScriptsToObj.Add(ObjAsteroid, ObjAsteroid.GetComponent<Asteroid>());
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].UpperPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y + (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockUpperPointSpawn = true;
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn = Componentdictionary._attachedScriptsToObj[ObjAsteroid].transform.position.y - (float)Math.Sqrt(Math.Pow(2 * (Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetAsteroidCirlce.bounds.size.y / 2), 2) - Math.Pow(Math.Abs(_startPosition.x - transform.position.x), 2));
+                if(Componentdictionary._attachedScriptsToObj[ObjAsteroid].LowerPointSpawn < _valueExtremePoints.YBot)
+                    Componentdictionary._attachedScriptsToObj[ObjAsteroid].LockLowerPointSpawn = false;
+                Componentdictionary._attachedScriptsToObj[ObjAsteroid].GetMovementAsteroid.Speed = UnityEngine.Random.Range(1, 7);
+            }
+        }
     }
     public void Respawn(GameObject Asteroid)
     {
-        Asteroid.GetComponent<SpriteRenderer>().sprite = _arrayprefubAsteroid[Random.Range(0, _arrayprefubAsteroid.Count - 1)].GetComponent<SpriteRenderer>().sprite;
-        _startPosition.y = Random.Range(_valueExtremePoints.YBot, _valueExtremePoints.YTop);
+        Asteroid.GetComponent<SpriteRenderer>().sprite = _arrayprefubAsteroid[UnityEngine.Random.Range(0, _arrayprefubAsteroid.Count - 1)].GetComponent<SpriteRenderer>().sprite;
+        _startPosition.y = UnityEngine.Random.Range(_valueExtremePoints.YBot, _valueExtremePoints.YTop);
         Asteroid.transform.position = _startPosition;
     }
 
