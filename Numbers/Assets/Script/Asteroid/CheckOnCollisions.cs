@@ -8,6 +8,7 @@ public class CheckOnCollisions : MonoBehaviour
     private UnityEvent _eventCollisionAsteroid;
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Destroy");
         _eventCollisionAsteroid.Invoke();
     }
 }

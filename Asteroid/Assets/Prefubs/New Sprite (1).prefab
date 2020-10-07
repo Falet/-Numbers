@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8870463174472983736
+--- !u!1 &3970953413986885661
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8404632904743946100}
-  - component: {fileID: 525015411415534103}
-  - component: {fileID: 111965546484722751}
-  - component: {fileID: -5038613246870837625}
-  - component: {fileID: -1704979208857115577}
-  - component: {fileID: -7135983611134094474}
+  - component: {fileID: 888734214031996647}
+  - component: {fileID: 9017813951550333299}
+  - component: {fileID: -4744092937018045348}
+  - component: {fileID: -1027370234440882108}
+  - component: {fileID: -6132087289854720293}
   m_Layer: 0
-  m_Name: AsteroidBig
+  m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8404632904743946100
+--- !u!4 &888734214031996647
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -404.1851, y: 104.40241, z: 1}
+  m_GameObject: {fileID: 3970953413986885661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.79, y: 5.68, z: -2.927473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &525015411415534103
+--- !u!212 &9017813951550333299
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
+  m_GameObject: {fileID: 3970953413986885661}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,62 +85,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &111965546484722751
+--- !u!114 &-4744092937018045348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
+  m_GameObject: {fileID: 3970953413986885661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644f38bf675560d4a8a3234a942f9662, type: 3}
+  m_Script: {fileID: 11500000, guid: 27d37f9344acf8b4fa3b299687171ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
---- !u!114 &-5038613246870837625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ade5080c84b62a43a18df49e802cd89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpperPointSpawn: 0
-  LockUpperPointSpawn: 0
-  UpperParent: {fileID: 0}
-  LowerParent: {fileID: 0}
-  LowerPointSpawn: 0
-  LockLowerPointSpawn: 0
---- !u!114 &-1704979208857115577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a84e1ad6e895464193e3bd564c65f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &-7135983611134094474
+--- !u!58 &-1027370234440882108
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870463174472983736}
+  m_GameObject: {fileID: 3970953413986885661}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.20001
+  m_Radius: 1.6
+--- !u!114 &-6132087289854720293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970953413986885661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4af2459fb24ed042958eb21983712a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpperPointSpawn: 0
+  UpperNeighbour: {fileID: 0}
+  LowerPointSpawn: 0
+  LowerNeighbour: {fileID: 0}
+  BorderOfSpawnAsteroid: {fileID: 0}
+  flag: 0

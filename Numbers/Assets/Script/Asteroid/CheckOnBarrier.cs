@@ -29,14 +29,14 @@ public class CheckOnBarrier : MonoBehaviour
         {
             if (UnityEngine.Random.Range(0, 1) == 1)
             {
-                if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
+                if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
                 {
                     _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
                 }
             }
             else
             {
-                if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
+                if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
                 {
                     _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
                 }
@@ -44,14 +44,14 @@ public class CheckOnBarrier : MonoBehaviour
         }
         else if (HitUpper.collider.gameObject != null)
         {
-            if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
+            if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
             {
                 _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
             }
         }
         else if (HitLower.collider.gameObject != null)
         {
-            if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
+            if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
             {
                 _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
             }
@@ -69,14 +69,14 @@ public class CheckOnBarrier : MonoBehaviour
             {
                 if (UnityEngine.Random.Range(0, 1) == 1)
                 {
-                    if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
+                    if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitUpper.collider.gameObject, out _asteroidTouch))
                     {
                         _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
                     }
                 }
                 else
                 {
-                    if (_compenentdictionary._attachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
+                    if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(HitLower.collider.gameObject, out _asteroidTouch))
                     {
                         _asteroidForChangePosotion.GetMovementAsteroid.Speed = _asteroidTouch.GetMovementAsteroid.Speed;
                     }
@@ -96,7 +96,7 @@ public class CheckOnBarrier : MonoBehaviour
     {
         if(FlagSign)
         {
-            if (_compenentdictionary._attachedScriptsToObj.TryGetValue(RaycastFromAsteroid.collider.gameObject, out _asteroidTouch))
+            if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(RaycastFromAsteroid.collider.gameObject, out _asteroidTouch))
             {
                 /*float distancebetweencenter = Math.Abs(RaycastFromAsteroid.collider.transform.position.y - _asteroidForChangePosotion.transform.position.y);// расстояние между центрами для смещения
                 _asteroidForChangePosotion.transform.position = new Vector3(_asteroidForChangePosotion.transform.position.x, _asteroidTouch.GetAsteroidCirlce.bounds.size.y / 2 + distancebetweencenter + _inaccuracyCollider, 1.0f);*/
@@ -105,7 +105,7 @@ public class CheckOnBarrier : MonoBehaviour
         }
         else
         {
-            if (_compenentdictionary._attachedScriptsToObj.TryGetValue(RaycastFromAsteroid.collider.gameObject, out _asteroidTouch))
+            if (_compenentdictionary.AttachedScriptsToObj.TryGetValue(RaycastFromAsteroid.collider.gameObject, out _asteroidTouch))
             {
                 float distancebetweencenter = Math.Abs(RaycastFromAsteroid.collider.transform.position.y - _asteroidForChangePosotion.transform.position.y);// расстояние между центрами для смещения
                 _asteroidForChangePosotion.transform.position = new Vector3(_asteroidForChangePosotion.transform.position.x, _asteroidTouch.GetAsteroidCirlce.bounds.size.y / 2 - distancebetweencenter - _inaccuracyCollider, 1.0f);
